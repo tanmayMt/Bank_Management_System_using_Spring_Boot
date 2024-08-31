@@ -1,4 +1,4 @@
-package entity;
+package net.javaguides.banking_app.entity;
  
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -18,11 +18,11 @@ import lombok.Setter;
 @Table(name="accounts")
 @Entity
 public class Account {
-    @Id
+    @Id   //Make the id field as primary key 
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="account_holder_name")
+    @Column(name="account_holder_name")  //Configure the column for this field
     private String accountHolderName;
     private double balance;
 }
