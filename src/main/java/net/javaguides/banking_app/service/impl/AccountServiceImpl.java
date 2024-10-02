@@ -87,4 +87,17 @@ public class AccountServiceImpl implements AccountService{
         return accounts.stream().map((account) -> AccountMapper.mapToAccountDto(account)).collect(Collectors.toList());
     }
 
+
+    @Override
+    public void deleteAccount(Long id) {
+
+        //Check if the account is exist or not
+        Account account=accountRepository
+        .findById(id)
+        .orElseThrow(()-> new RuntimeException("Account doesn't exists"));
+
+        //Delect Account
+        accountRepository.deleteById(id);
+    }
+
 }
